@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Prediction</title>
+	<meta charset="UTF-8">
+    <!-- Project By Balchandra Samleti | Sheela Jadhav | Raksha Salunke -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" 	   type="image/png"href="{{ url_for('static',filename='images/icons/favicon.ico') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/loader.js') }}"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['gauge']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        
+        if ('{{ValueOut}}' == '0') {
+            _Data = 0;
+        } else {
+            _Data = 100;
+        }
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['Prediction', _Data],
+            ]);
+
+            var options = {
+            width: 600, height: 300,
+            redFrom: 90, redTo: 100,
+            yellowFrom:75, yellowTo: 90,
+            minorTicks: 5
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+
+            setInterval(function() {
+            data.setValue();
+            chart.draw(data, options);
+            }, 13000);
+        }
+
+        </script>
+		
+		<style>
+    .fixTableHead {
+      overflow-y: auto;
+      height: 310px;
+    }
+    .fixTableHead thead th {
+      position: sticky;
+      top: 0;
+    }
+    table {
+      border-collapse: collapse;        
+      width: 100%;
+    }
+    th,
+    td {
+      padding: 8px 15px;
+      border: 2px solid #529432;
+    }
+    th {
+      background: #yellow;
+    }
+	
+  </style>
+    </head>
+    <body>
+
+        <div class="contact1">
+		
+            <div class="container-contact1">
+                    
+			   <center>
+			   <center>My Tweets</center>
+			   <div class="fixTableHead">
+    <table>
+      <thead>
+        <tr>
+           <th>Id</th>
+                    <th>Tweet</th>
+                    <th>Label</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        {% for row in DataOut %}  
+                <tr>
+                
+                        
+                        <th>{{ row[1] }}</th>
+                        <th>{{ row[2] }}</th>
+                        <th>{{ row[3] }}</th>
+                        
+                 
+                </tr>
+                {% endfor %}
+      
+      </tbody>
+        
+    </table>
+  
+
+			
+			</center>
+                </h2><br>
+                <h5><a class="bottom" href="{{url_for('checkagain')}}">Tweet Again</a></h5> 
+				
+			<center><a href="{{ url_for('logout') }}" class="btn">Logout</a></center>
+            </div>
+                <h2 class="contact1-form-title">
+       
+           
+        </div>
+
+
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/tilt/tilt.jquery.min.js') }}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</body>
+</html>

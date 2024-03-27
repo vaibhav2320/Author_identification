@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <!--===========================================================================================-->
+        
+        <!--===========================================================================================-->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='icon/ipl-favicon.ico') }}">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!--===========================================================================================-->
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <!--===========================================================================================-->
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <!--===========================================================================================-->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <!--===========================================================================================-->
+		<style>
+		.contact1 {
+  width: 100%;
+  min-height: 100%;
+  padding: 15px;
+
+  background: #009bff;
+  background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+  background: -o-linear-gradient(left, #0072ff, #00c6ff);
+  background: -moz-linear-gradient(left, #0072ff, #00c6ff);
+  background: linear-gradient(left, #0072ff, #00c6ff);
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-contact1 {
+  width: 1163px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 90px 130px 88px 381px;
+}
+.contact1-form-btn {
+  min-width: 163px;
+  height: 30px;
+  border-radius: 25px;
+  background: #57b846;
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5	;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+
+
+}
+
+
+
+
+		</style>
+
+    </head>
+
+    <body>
+	
+<div class="contact1">
+	
+      
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                <script type="text/javascript">
+                    alert("Batting and bowling team both are same. This is not allowed.");
+                </script>
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Prediction Area -->
+        <div class="prediction-area">
+
+            <!-- IPL Banner - 1 -->
+            <div class='ipl-banner-left'>
+
+                <div class="slider-frame">
+                    <div class="slide-images-up">
+                        <!--===========================================================================================-->
+                        <!-- Image-1 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/mi.jpg') }}" alt="Mumbai Indians">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-2 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/srh.png') }}" alt="Sunrisers Hyderabad">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-3 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/rcb.png') }}" alt="Royal Challengers Bangalore">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-4 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/dc.png') }}" alt="Delhi Capitals">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-5 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/rr.png') }}" alt="Rajasthan Royals">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-6 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/kkr.jpg') }}" alt="Kolkata Knight Riders">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-7 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/kxip.png') }}" alt="Kings XI Punjab">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-8 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/csk.png') }}" alt="Chennai Super Kings">
+                        </div>
+                        <!--===========================================================================================-->
+                    </div>
+                </div>
+            </div>
+
+{% block body %} {% endblock %}
+
+
+            <!-- IPL Banner - 2 -->
+            <div class='ipl-banner-right'>
+
+                <div class="slider-frame">
+                    <div class="slide-images-down">
+                        <!--===========================================================================================-->
+                        <!-- Image-1 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/mi.jpg') }}" alt="Mumbai Indians">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-2 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/srh.png') }}" alt="Sunrisers Hyderabad">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-3 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/rcb.png') }}" alt="Royal Challengers Bangalore">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-4 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/dc.png') }}" alt="Delhi Capitals">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-5 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/kkr.jpg') }}" alt="Kolkata Knight Riders">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-6 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/rr.png') }}" alt="Rajasthan Royals">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-7 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/kxip.png') }}" alt="Kings XI Punjab">
+                        </div>
+                        <!--===========================================================================================-->
+                        <!-- Image-8 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='images/csk.png') }}" alt="Chennai Super Kings">
+                        </div>
+                        <!--===========================================================================================-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+       <footer class="text-gray-700 body-font">
+        <!--===========================================================================================-->
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+    
+    </span>
+  </div>
+</footer>
+
+    </body>
+</html>
